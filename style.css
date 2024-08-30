@@ -1,0 +1,217 @@
+.top-button{
+    position:absolute;
+    width:40%;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: large;
+    background-color: rgb(43, 43, 43);
+    color: #FFFF;
+}
+
+.top-button:hover{
+    transition: all 200ms ease;
+    background-color: rgb(53, 53, 53);
+}
+
+.top-button:active{
+    background-color: rgb(63, 63, 63);
+}
+
+#physics-section{
+    left:55%;
+}
+#math-section{
+    right:55%
+}
+
+#button-color-bg{
+    height: 40px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: rgb(31, 31, 31);
+    border-width: 0px;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(24, 24, 24);
+}
+
+.button-calculator-number{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    border-style: none;
+    font-size: large;
+    background-color: rgb(43, 43, 43);
+    color: #FFFF;
+    font-size: 30px;
+
+}
+.button-calculator-number:hover{
+    transition: all 200ms ease;
+    background-color: rgb(53, 53, 53);
+}
+#calculator-bg-color{
+    background-color: rgb(33,33,33);
+    width: 1000px;
+    border-radius: 30px;
+}
+.answer-area{
+    background-color: rgb(73, 73,73);
+    height: 80px;
+    width: 1000px;
+    border-radius: 15px;
+    text-align: left;
+
+}
+
+#answer-text{
+    position: relative;
+    top: 10px;
+    font-size: 50px;
+    font-family:monospace;
+    left:20px
+}
+.button-calculator-function{
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    border-style: none;
+    font-size: large;
+    background-color: rgb(60, 60, 60);
+    color: #FFFF;
+    font-size: 30px;
+
+}
+.button-calculator-function:hover{
+    transition: all 200ms ease;
+    background-color: rgb(70, 70, 70);
+}
+
+#operation-text{
+    font-size: 22px;
+    position: absolute;
+    font-family:monospace;
+    left: 44.5em;
+    top: 3.5em
+
+}
+
+#other-functions{
+    position: absolute;
+    left: 27em;
+    top:11.3em
+}
+
+#zero-padding{
+    padding: 0px 0px 0px 0px;
+}
+
+.longer-buttons{
+    width:100px;
+    border-radius: 40%;
+}
+
+#graphing-canvas{
+    width: 500px;
+    height: 500px;
+    border-style: solid;
+    border-color: #FFFF;
+    border-width: 2.5px;
+    background-color: #c5c5c5;
+    border-radius: 10px;
+}
+
+#inputFormula{
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    position: absolute;
+    background-color: rgb(73,73,73);
+    border-style: solid;
+    border-color: #c5c5c5;
+    color: #ffffff;
+    left:550px;
+    top: 100px;
+    font-size: 20px;
+
+}
+
+#formula-submit{
+    position: absolute;
+    width:130px;
+    height: 50px;
+    font-size: 25px;
+    color: #ffffff;
+    border-radius: 10px;
+    border-width: 5px;
+    background-color: rgb(43, 43, 43);
+    border-color: rgb(73, 73, 73);;
+    border-style: solid;
+    top: 150px;
+    left: 550px;
+}
+
+#graph-label{
+    position: absolute;
+    color: #FFFF;
+    left: 550px;
+    top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#t-label{
+    position: absolute;
+    left: 550px;
+    top: 250px;
+    color: #FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 40%;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(43,43,43);
+    border-style: solid;
+    border-color: rgb(73,73,73);
+    border-radius: 10px;
+    border-width: 5px;
+}
+
+#t-input-div{
+    position: absolute;
+    top: 330px;
+    left: 550px;
+}
+
+.t-labels{
+    color:#FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#white-font{
+    color: #FFFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#calculator-guide-div{
+    position: absolute;
+    width: 400px;
+    height: 50%;
+    left: 37em;
+    top: 25.5em;
+}
+
+#graphing-calculator-guide-div{
+    position: absolute;
+    width: 400px;
+    left: 34.5em;
+    top: 25em;
+}
+
+#guide-graph-pos{
+    position: absolute;
+    left: 26em;
+    top: 10.5em;
+    background-color: #444;
+}

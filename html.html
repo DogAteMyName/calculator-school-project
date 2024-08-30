@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>супер крутой калькулятор</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        
+        <div id="button-color-bg">
+            <button class="top-button" id="math-section" onclick="basicCalculatorToggle(`on`); graphingCalculatorToggle(`off`)">КАЛЬКУЛЯТОР</button>
+            <button class="top-button" id="physics-section" onclick="basicCalculatorToggle(`off`); graphingCalculatorToggle(`on`); drawGraph(); document.getElementById(`graphing-calculator-guide-div`).style.display = `none`">ГРАФИКИ</button>
+        </div>
+    <div id="calculator-basic">
+        <div class="answer-area">
+            <p id="answer-text">0</p>
+            <p id="operation-text"></pp>
+        </div>
+        <div id="calculator-bg-color">
+            <div>
+                <button class="button-calculator-number" onclick="addSymbol(7)">7</button>
+                <button class="button-calculator-number" onclick="addSymbol(8)">8</button>
+                <button class="button-calculator-number" onclick="addSymbol(9)">9</button>
+
+                <button class="button-calculator-function" onclick="changeInput(`sum`)">+</button>
+                <button class="button-calculator-function" onclick="changeInput(`sub`)">-</button>
+
+                <button class="button-calculator-function" onclick="changeInput(`log`)">logₐ</button>
+                <button class="button-calculator-function" onclick="factorialCalculator()">!</button>
+                
+                <button class="button-calculator-function longer-buttons" onclick="trig(`sin`)">sin</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`asin`)">sin⁻¹</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`sinh`)">sinh</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`asinh`)">sinh⁻¹</button>
+            </div>
+            <div>            
+                <button class="button-calculator-number" onclick="addSymbol(6)">6</button>
+                <button class="button-calculator-number" onclick="addSymbol(5)">5</button>
+                <button class="button-calculator-number" onclick="addSymbol(4)">4</button>
+
+                <button class="button-calculator-function" onclick="changeInput(`mul`)">*</button>
+                <button class="button-calculator-function" onclick="changeInput(`div`)">÷</button>
+
+                <button class="button-calculator-function" onclick="abs()">|a|</button>
+                <button class="button-calculator-function" onclick="ln()">ln</button>
+
+                <button class="button-calculator-function longer-buttons" onclick="trig(`cos`)">cos</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`acos`)">cos⁻¹</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`cosh`)">cosh</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`acosh`)">cosh⁻¹</button>
+            </div>
+            <div>            
+                <button class="button-calculator-number" onclick="addSymbol(1)">1</button>
+                <button class="button-calculator-number" onclick="addSymbol(2)">2</button>
+                <button class="button-calculator-number" onclick="addSymbol(3)">3</button>
+
+                <button class="button-calculator-function" onclick="changeInput(`pow`)">aᵇ</button>
+                <button class="button-calculator-function" onclick="changeInput(`rt`)">√</button>
+
+                <button class="button-calculator-function" onclick="pow10()">10ᵃ</button>
+                <button class="button-calculator-function" onclick="powe()">eᵃ</button>
+
+                <button class="button-calculator-function longer-buttons" onclick="trig(`tan`)">tan </button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`atan`)">tan⁻¹</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`tanh`)">tanh</button>
+                <button class="button-calculator-function longer-buttons" onclick="trig(`atanh`)">tanh⁻¹</button>
+            </div>
+            <div>
+                <button class="button-calculator-number" onclick="addSymbol(0)">0</button>
+
+                <button class="button-calculator-number" onclick="calculateCalculator()">=</button>
+                <button class="button-calculator-number" onclick="eraseAll()">C</button>       
+                <button class="button-calculator-number" onclick="removeSymbol()">←</button>
+                <button class="button-calculator-number" id="radian-button" onclick="switchDegRad()">RAD</button>
+                <button class="button-calculator-number" id="guide-button-calculator" onclick="calculatorToggleGuide()">🕮</button>
+            </div>
+            <div>
+                <button class="button-calculator-number" onclick="inverseSign()">±</button>
+                <button class="button-calculator-number" onclick="addDot()">.</button>
+                <button class="button-calculator-number" onclick="findPercent()">%</button>
+
+                <button class="button-calculator-number" onclick="writeConstant(`pi`)">π</button>
+                <button class="button-calculator-number" onclick="writeConstant(`e`)">e</button>
+                <button class="button-calculator-number" onclick="writeConstant(`phi`)">ф</button>
+                <button class="button-calculator-number" onclick="writeConstant(`gm`)">γ</button>
+            </div>
+            <div id="calculator-guide-div">
+                <p id="white-font">
+                    Напишите число, потом выберите операцию (в прав-ом верхнем углу будет показано что вы выбрали). Когда на поле появится ноль пишите второе число и нажмите на кнопку "=". π/e/ф/γ это константы. Кнопка RAD переключает между использование радианов и градусов. ± делает число отрицательным или положительным. Кнопка ← убирает символ в конце, а C все стирает.
+                </p>
+            </div>
+            
+        </div>
+        
+    </div>
+
+
+    <div id="graphing-calculator">
+        <canvas id="graphing-canvas"></canvas>
+        <p id="graph-label">Ввод графиков:</p>
+        <button onclick="drawGraph()" id="formula-submit">Нарисуй!</button>
+        <input type="text" id="inputFormula">
+        <button id="t-label" onclick="calculateTaylorSeries(); drawTaylorGraph()">Найти ряд Тейлора от функции</button>
+        <div id="t-input-div">
+            <label class="t-labels">Итераций</label>
+            <input type="number" min="0" max="15" id="f-it" value="10">
+            <br>
+            <label class="t-labels">Точка</label>
+            <input type="number" min="-10" max="10" id="f-os" value="0">
+            <br>
+            <input type="text" id="taylor-expansion">
+        </div> 
+        <div id="graphing-calculator-guide-div">
+            <p id="white-font">
+                Пишешь график в поле ввода и нажимаешь "Нарисуй!". Степень пишется через ^, есть все функции из библиотеки Math. Введите график и нажмите кнопку "Найти ряд Тейлора функции" чтобы найти ряд Тейлора функции. Количество итераций отвечает за количчесвто многочленов в ряду. Точка отвечает за позицию точки вокруг которого будет происходить апроксимация.  
+            </p>
+        </div>  
+        <button class="button-calculator-number" id="guide-graph-pos" onclick="calculatorGraphToggleGuide()">
+            🕮
+        </button>    
+        
+    </div>
+    <script>
+        document.getElementById("calculator-guide-div").style.display = "none"
+    </script>
+
+    <script src="nerdamer.core.js"></script>
+    <script src="Calculus.js"></script>
+    <script src="script.js"></script> 
+    <script src="functions.js"></script> 
+    <script src="toggling.js"></script> 
+    <script src="taylor-series.js"></script>
+    <script src="graphingCalculator.js"></script> 
+
+</body>
+</html>
